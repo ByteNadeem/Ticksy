@@ -5,4 +5,4 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("Welcome to Ticksy - Your Task Management System!")
+    return render(request, 'tasks.html')
