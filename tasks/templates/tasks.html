@@ -1,16 +1,18 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticksy ToDo</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
 </head>
 <body>
     <header>
          <nav class="top-nav">
-    <a href="./" class="header-logo">
-            <img src="./images/tricksy-logo-sm.png" alt="Trickys logo" />
+    <a href="{% url 'home' %}" class="header-logo">
+            <img src="{% static 'images/tricksy-logo-sm.png' %}" alt="Ticksy logo" />
             <div class="logo-text lobster-regular">Ticksy</div>
     </a>
     <input id="menu-toggle" type="checkbox" />
@@ -18,9 +20,9 @@
     <div class='menu-button'></div>
   </label>
     <ul class="menu">
-      <li><a href="./">Home</a></li>
-      <li><a href="./">Login</a></li>
-      <li><a href="./">Register</a></li>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="/admin/">Admin</a></li>
+      <li><a href="#tasks">Tasks</a></li>
     </ul>
 </nav>
     </header>
@@ -29,20 +31,57 @@
         <section class="bg-colour1">
             <div class="standard-section">
                 <div class="hero-section">
-                    <img src="./images/generate a hero imag.png" alt="This is an image of a man completing a task" class="hero-img" />
+                    <img src="{% static 'images/generate a hero imag.png' %}" alt="This is an image of a man completing a task" class="hero-img" />
                     <div class="hero-text">
                         <h1 class="lobster-regular">Welcome To Ticksy</h1>
-                        <h2>Organising your work life ballance</h2>
-                        <p>Mange you day to day tasks with wour superb new software, Ticksy todo</p>
+                        <h2>Organizing your work life balance</h2>
+                        <p>Manage your day to day tasks with our superb new software, Ticksy todo</p>
                     </div>
                 </div>
             </div>
             
         </section>
-        <section class="bg-colour2">
+        <section class="bg-colour2" id="tasks">
             <div class="standard-section">
-                <div class="triplet-section">
-                    This is where you add your 3 items
+                <div class="tasks-section">
+                    <h2 class="lobster-regular">Your Tasks</h2>
+                    
+                    {% if tasks %}
+                        <div class="tasks-grid">
+                            {% for task in tasks %}
+                            <div class="task-card {% if task.completed %}completed{% endif %}">
+                                <div class="task-header">
+                                    <h3>{{ task.title }}</h3>
+                                    <span class="task-category">{{ task.category.name }}</span>
+                                </div>
+                                <div class="task-details">
+                                    {% if task.due_date %}
+                                        <p class="due-date">Due: {{ task.due_date|date:"M d, Y" }}</p>
+                                    {% endif %}
+                                    <div class="task-status">
+                                        {% if task.completed %}
+                                            <span class="status completed">✓ Completed</span>
+                                        {% else %}
+                                            <span class="status pending">○ Pending</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="no-tasks">
+                            <p>No tasks yet! <a href="/admin/">Add some tasks</a> to get started.</p>
+                        </div>
+                    {% endif %}
+                    
+                    <!-- Categories Summary -->
+                    <div class="categories-summary">
+                        <h3>Categories</h3>
+                        {% for category in categories %}
+                            <span class="category-tag">{{ category.name }}</span>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             
