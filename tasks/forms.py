@@ -1,2 +1,14 @@
-from django import from .forms import 
-from django.forms import ModelFor
+# tasks/forms.py
+
+from django import forms
+from .models import Task
+
+
+class TaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['title', 'due_date', 'category']
+
+        widgets = {
+            'due_date': forms.DateInput(attrs={'type': 'date'})
+        }
