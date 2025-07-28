@@ -67,6 +67,12 @@
                                                 <span class="status pending">○ Pending</span>
                                             </div>
                                         </div>
+                                        <div class="task-actions">
+                                            <a href="{% url 'task_detail' task.id %}" class="btn-small">View</a>
+                                            <a href="{% url 'task_edit' task.id %}" class="btn-small">Edit</a>
+                                            <a href="{% url 'task_toggle_complete' task.id %}" class="btn-small">Complete</a>
+                                            <a href="{% url 'task_delete' task.id %}" class="btn-small btn-danger">Delete</a>
+                                        </div>
                                     </div>
                                     {% endfor %}
                                 </div>
@@ -95,6 +101,12 @@
                                             <div class="task-status">
                                                 <span class="status completed">✓ Completed</span>
                                             </div>
+                                        </div>
+                                        <div class="task-actions">
+                                            <a href="{% url 'task_detail' task.id %}" class="btn-small">View</a>
+                                            <a href="{% url 'task_edit' task.id %}" class="btn-small">Edit</a>
+                                            <a href="{% url 'task_toggle_complete' task.id %}" class="btn-small">Mark Pending</a>
+                                            <a href="{% url 'task_delete' task.id %}" class="btn-small btn-danger">Delete</a>
                                         </div>
                                     </div>
                                     {% endfor %}
