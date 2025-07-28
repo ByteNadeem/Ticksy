@@ -1,0 +1,57 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task - Ticksy ToDo</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <a href="{% url 'home' %}" class="header-logo">
+                <img src="{% static 'images/tricksy-logo-sm.png' %}" alt="Ticksy logo" />
+                <div class="logo-text lobster-regular">Ticksy</div>
+            </a>
+            <input id="menu-toggle" type="checkbox" />
+            <label class='menu-button-container' for="menu-toggle">
+                <div class='menu-button'></div>
+            </label>
+            <ul class="menu">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="/admin/">Admin</a></li>
+                <li><a href="{% url 'tasks' %}">Tasks</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bg-colour1">
+            <div class="standard-section">
+                <h1 class="lobster-regular">Edit Task</h1>
+                
+                <div class="tasks-section">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            {{ form.title|as_crispy_field }}
+                            {{ form.due_date|as_crispy_field }}
+                            {{ form.category|as_crispy_field }}
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                            <a href="{% url 'task_detail' task.id %}" class="btn-primary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

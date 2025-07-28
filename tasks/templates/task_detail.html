@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details - Ticksy ToDo</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <a href="{% url 'home' %}" class="header-logo">
+                <img src="{% static 'images/tricksy-logo-sm.png' %}" alt="Ticksy logo" />
+                <div class="logo-text lobster-regular">Ticksy</div>
+            </a>
+            <input id="menu-toggle" type="checkbox" />
+            <label class='menu-button-container' for="menu-toggle">
+                <div class='menu-button'></div>
+            </label>
+            <ul class="menu">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="/admin/">Admin</a></li>
+                <li><a href="{% url 'tasks' %}">Tasks</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bg-colour1">
+            <div class="standard-section">
+                <h1 class="lobster-regular">Task Details</h1>
+                
+                <div class="task-detail-card">
+                    <h2>{{ task.title }}</h2>
+                    <p><strong>Category:</strong> {{ task.category }}</p>
+                    {% if task.due_date %}
+                        <p><strong>Due Date:</strong> {{ task.due_date|date:"F j, Y" }}</p>
+                    {% endif %}
+                    <p><strong>Status:</strong> 
+                        {% if task.completed %}
+                            <span class="status completed">✓ Completed</span>
+                        {% else %}
+                            <span class="status pending">○ Pending</span>
+                        {% endif %}
+                    </p>
+                    
+                    <div class="task-actions">
+                        <a href="{% url 'task_edit' task.id %}" class="btn-primary">Edit Task</a>
+                        <a href="{% url 'task_toggle_complete' task.id %}" class="btn-primary">
+                            {% if task.completed %}Mark as Pending{% else %}Mark as Complete{% endif %}
+                        </a>
+                        <a href="{% url 'task_delete' task.id %}" class="btn-primary">Delete Task</a>
+                        <a href="{% url 'tasks' %}" class="btn-primary">Back to Tasks</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
