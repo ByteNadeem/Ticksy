@@ -58,7 +58,6 @@
             display: inline-flex !important;
             align-items: center !important;
             padding: 8px 14px !important;
-            background: #f46b45 !important; /* Orange background */
             color: white !important;
             text-decoration: none !important;
             border-radius: 6px !important;
@@ -68,7 +67,39 @@
             border: none !important;
             cursor: pointer !important;
             min-height: 32px !important;
-            box-shadow: 0 2px 4px rgba(244, 107, 69, 0.2) !important;
+        }
+
+        /* View button - Blue */
+        a.btn-small[href*="task_detail"] {
+            background: #007bff !important; /* Bright blue */
+            box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2) !important;
+        }
+
+        a.btn-small[href*="task_detail"]:hover {
+            background: #0056b3 !important;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3) !important;
+        }
+
+        /* Edit button - Orange */
+        a.btn-small[href*="task_edit"] {
+            background: #fd7e14 !important; /* Bright orange */
+            box-shadow: 0 2px 4px rgba(253, 126, 20, 0.2) !important;
+        }
+
+        a.btn-small[href*="task_edit"]:hover {
+            background: #e8650d !important;
+            box-shadow: 0 4px 8px rgba(253, 126, 20, 0.3) !important;
+        }
+
+        /* Complete/Mark Pending button - Green */
+        a.btn-small[href*="task_toggle_complete"] {
+            background: #28a745 !important; /* Bright green */
+            box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2) !important;
+        }
+
+        a.btn-small[href*="task_toggle_complete"]:hover {
+            background: #1e7e34 !important;
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3) !important;
         }
 
         .btn-small.btn-danger {
@@ -77,9 +108,7 @@
         }
 
         .btn-small:hover {
-            background: #e55a3d !important; /* Darker orange on hover */
             transform: translateY(-1px) !important;
-            box-shadow: 0 4px 8px rgba(244, 107, 69, 0.3) !important;
             color: white !important;
             text-decoration: none !important;
         }
