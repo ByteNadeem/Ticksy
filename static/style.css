@@ -268,3 +268,114 @@ header{width: 100%; position:fixed; top:0; }
     border-radius: 15px;
     font-size: 12px;
 }
+
+/* CRUD Action Buttons Styling */
+.task-actions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-small {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #f46b45;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary:hover, .btn-small:hover {
+    background: #e55a3d;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(244, 107, 69, 0.3);
+}
+
+.btn-small {
+    padding: 6px 10px;
+    font-size: 11px;
+}
+
+.btn-danger {
+    background: #dc3545;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    box-shadow: 0 2px 5px rgba(220, 53, 69, 0.3);
+}
+
+/* Task Status Spacing */
+.task-status {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Form Actions for Edit/Delete Pages */
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Task Detail Card Spacing */
+.task-detail-card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #f46b45;
+}
+
+.task-detail-card h2 {
+    margin-top: 0;
+    color: #132750;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.task-detail-card p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* Delete Confirmation Styling */
+.delete-confirmation {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #dc3545;
+    text-align: center;
+}
+
+.task-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 3px solid #f46b45;
+}
+
+.task-info h3 {
+    margin-top: 0;
+    color: #132750;
+}
+
+/* Icon spacing */
+.task-actions i,
+.form-actions i,
+.btn-primary i,
+.btn-small i {
+    margin-right: 5px;
+}
