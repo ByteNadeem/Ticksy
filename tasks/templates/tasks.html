@@ -1,5 +1,6 @@
 
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,41 +47,78 @@
                 <div class="tasks-section">
                     <h2 class="lobster-regular">Your Tasks</h2>
                     
-                    {% if tasks %}
-                        <div class="tasks-grid">
-                            {% for task in tasks %}
-                            <div class="task-card {% if task.completed %}completed{% endif %}">
-                                <div class="task-header">
-                                    <h3>{{ task.title }}</h3>
-                                    <span class="task-category">{{ task.category.name }}</span>
-                                </div>
-                                <div class="task-details">
-                                    {% if task.due_date %}
-                                        <p class="due-date">Due: {{ task.due_date|date:"M d, Y" }}</p>
-                                    {% endif %}
-                                    <div class="task-status">
-                                        {% if task.completed %}
-                                            <span class="status completed">✓ Completed</span>
-                                        {% else %}
-                                            <span class="status pending">○ Pending</span>
-                                        {% endif %}
-                                    </div>
-                                </div>
+                    <!-- Add New Task Form -->
+                    <div class="add-task-form">
+                        <h3>Add a new task</h3>
+                        <form method="post" action="{% url 'home' %}">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                {{ form.title|as_crispy_field }}
+                                {{ form.due_date|as_crispy_field }}
+                                {{ form.category|as_crispy_field }}
+                                <button type="submit" class="btn-primary">Add Task</button>
                             </div>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <div class="no-tasks">
-                            <p>No tasks yet! <a href="/admin/">Add some tasks</a> to get started.</p>
-                        </div>
-                    {% endif %}
+                        </form>
+                    </div>
                     
-                    <!-- Categories Summary -->
-                    <div class="categories-summary">
-                        <h3>Categories</h3>
-                        {% for category in categories %}
-                            <span class="category-tag">{{ category.name }}</span>
-                        {% endfor %}
+                    <!-- To Do Tasks -->
+                    <div class="tasks-container">
+                        <div class="todo-section">
+                            <h3>To Do</h3>
+                            {% if to_do_tasks %}
+                                <div class="tasks-grid">
+                                    {% for task in to_do_tasks %}
+                                    <div class="task-card">
+                                        <div class="task-header">
+                                            <h4>{{ task.title }}</h4>
+                                            <span class="task-category">{{ task.category.name }}</span>
+                                        </div>
+                                        <div class="task-details">
+                                            {% if task.due_date %}
+                                                <p class="due-date">Due: {{ task.due_date|date:"M d, Y" }}</p>
+                                            {% endif %}
+                                            <div class="task-status">
+                                                <span class="status pending">○ Pending</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <div class="no-tasks">
+                                    <p>No pending tasks! Great job!</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Done Tasks -->
+                        <div class="done-section">
+                            <h3>Done</h3>
+                            {% if done_tasks %}
+                                <div class="tasks-grid">
+                                    {% for task in done_tasks %}
+                                    <div class="task-card completed">
+                                        <div class="task-header">
+                                            <h4>{{ task.title }}</h4>
+                                            <span class="task-category">{{ task.category.name }}</span>
+                                        </div>
+                                        <div class="task-details">
+                                            {% if task.due_date %}
+                                                <p class="due-date">Due: {{ task.due_date|date:"M d, Y" }}</p>
+                                            {% endif %}
+                                            <div class="task-status">
+                                                <span class="status completed">✓ Completed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <div class="no-tasks">
+                                    <p>No completed tasks yet.</p>
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
