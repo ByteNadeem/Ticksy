@@ -156,6 +156,120 @@ header{width: 100%; position:fixed; top:0; }
     margin-bottom: 30px;
 }
 
+/* Add New Task Form Styling */
+.add-task-form {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid #f46b45;
+}
+
+.add-task-form h3 {
+    color: #132750;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-task-form h3::before {
+    content: "📝";
+    font-size: 18px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Crispy form field styling */
+.add-task-form .form-group {
+    margin-bottom: 0;
+}
+
+.add-task-form label {
+    color: #132750;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.add-task-form .form-control {
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+.add-task-form .form-control:focus {
+    border-color: #f46b45;
+    box-shadow: 0 0 0 3px rgba(244, 107, 69, 0.1);
+    background-color: white;
+    outline: none;
+}
+
+.add-task-form select.form-control {
+    cursor: pointer;
+}
+
+/* Add Task Button Special Styling */
+.add-task-form .btn-primary {
+    background: linear-gradient(135deg, #f46b45, #eea849);
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(244, 107, 69, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.add-task-form .btn-primary:hover {
+    background: linear-gradient(135deg, #e55a3d, #d69937);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 107, 69, 0.4);
+}
+
+.add-task-form .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(244, 107, 69, 0.3);
+}
+
+/* Tasks Container and Section Styling */
+.tasks-container {
+    margin-top: 30px;
+}
+
+.todo-section, .done-section {
+    margin-bottom: 40px;
+}
+
+.todo-section h3, .done-section h3 {
+    color: #132750;
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f46b45;
+    display: inline-block;
+}
+
 .tasks-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
