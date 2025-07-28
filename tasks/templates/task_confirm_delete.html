@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Task - Ticksy ToDo</title>
     <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -44,8 +45,12 @@
                     <form method="post">
                         {% csrf_token %}
                         <div class="form-actions">
-                            <button type="submit" class="btn-primary">Yes, Delete</button>
-                            <a href="{% url 'task_detail' task.id %}" class="btn-primary">Cancel</a>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-trash"></i> Yes, Delete
+                            </button>
+                            <a href="{% url 'task_detail' task.id %}" class="btn-primary">
+                                <i class="fas fa-times"></i> Cancel
+                            </a>
                         </div>
                     </form>
                 </div>

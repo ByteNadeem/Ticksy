@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Task - Ticksy ToDo</title>
     <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -42,8 +43,12 @@
                         </div>
                         
                         <div class="form-actions">
-                            <button type="submit" class="btn-primary">Save Changes</button>
-                            <a href="{% url 'task_detail' task.id %}" class="btn-primary">Cancel</a>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                            <a href="{% url 'task_detail' task.id %}" class="btn-primary">
+                                <i class="fas fa-times"></i> Cancel
+                            </a>
                         </div>
                     </form>
                 </div>

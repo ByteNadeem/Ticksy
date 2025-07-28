@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Details - Ticksy ToDo</title>
     <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -46,12 +47,22 @@
                     </p>
                     
                     <div class="task-actions">
-                        <a href="{% url 'task_edit' task.id %}" class="btn-primary">Edit Task</a>
-                        <a href="{% url 'task_toggle_complete' task.id %}" class="btn-primary">
-                            {% if task.completed %}Mark as Pending{% else %}Mark as Complete{% endif %}
+                        <a href="{% url 'task_edit' task.id %}" class="btn-primary">
+                            <i class="fas fa-edit"></i> Edit Task
                         </a>
-                        <a href="{% url 'task_delete' task.id %}" class="btn-primary">Delete Task</a>
-                        <a href="{% url 'tasks' %}" class="btn-primary">Back to Tasks</a>
+                        <a href="{% url 'task_toggle_complete' task.id %}" class="btn-primary">
+                            {% if task.completed %}
+                                <i class="fas fa-undo"></i> Mark as Pending
+                            {% else %}
+                                <i class="fas fa-check"></i> Mark as Complete
+                            {% endif %}
+                        </a>
+                        <a href="{% url 'task_delete' task.id %}" class="btn-primary">
+                            <i class="fas fa-trash"></i> Delete Task
+                        </a>
+                        <a href="{% url 'tasks' %}" class="btn-primary">
+                            <i class="fas fa-arrow-left"></i> Back to Tasks
+                        </a>
                     </div>
                 </div>
             </div>
