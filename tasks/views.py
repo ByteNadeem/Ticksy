@@ -8,6 +8,13 @@ from .forms import TaskForm
 
 def home(request):
     """
+    A view to display the home page with just the hero section
+    """
+    return render(request, 'tasks.html')
+
+
+def tasks(request):
+    """
     A view to display the tasks to do and the completed tasks
     with the tasks due soonest at the top
     """
@@ -19,7 +26,7 @@ def home(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('tasks')
     else:
         form = TaskForm()
 
@@ -29,4 +36,4 @@ def home(request):
         'form': form,
     }
 
-    return render(request, 'tasks.html', context)
+    return render(request, 'tasks_page.html', context)
