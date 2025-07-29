@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Task
 from .forms import TaskForm
@@ -44,22 +44,21 @@ def tasks(request):
     return render(request, 'tasks_page.html', context)
 
 @login_required
-@permission_required('tasks.view_task', raise_exception=True)
 def task_detail(request, task_id):
     """
     View to display a single task's details
     """
-    task = get_object_or_404(Task, id=task_id, user=request.user)  # Only user's tasks
+    task = get_object_or_404(Task, id=task_id, user=request.user)
     context = {'task': task}
     return render(request, 'task_detail.html', context)
 
+
 @login_required
-@permission_required('tasks.change_task', raise_exception=True)
 def task_edit(request, task_id):
     """
     View to edit an existing task
     """
-    task = get_object_or_404(Task, id=task_id, user=request.user)  # Only user's tasks
+    task = get_object_or_404(Task, id=task_id, user=request.user)
     
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
@@ -73,13 +72,13 @@ def task_edit(request, task_id):
     context = {'form': form, 'task': task}
     return render(request, 'task_edit.html', context)
 
+
 @login_required
-@permission_required('tasks.delete_task', raise_exception=True)
 def task_delete(request, task_id):
     """
     View to delete a task
     """
-    task = get_object_or_404(Task, id=task_id, user=request.user)  # Only user's tasks
+    task = get_object_or_404(Task, id=task_id, user=request.user)
     
     if request.method == 'POST':
         task.delete()
@@ -89,13 +88,13 @@ def task_delete(request, task_id):
     context = {'task': task}
     return render(request, 'task_confirm_delete.html', context)
 
+
 @login_required
-@permission_required('tasks.change_task', raise_exception=True)
 def task_toggle_complete(request, task_id):
     """
     View to toggle task completion status
     """
-    task = get_object_or_404(Task, id=task_id, user=request.user)  # Only user's tasks
+    task = get_object_or_404(Task, id=task_id, user=request.user)
     task.completed = not task.completed
     task.save()
     status = "completed" if task.completed else "pending"
