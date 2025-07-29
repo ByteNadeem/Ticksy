@@ -1,34 +1,59 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
-{% load i18n %}
-{% load account socialaccount %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block title %}Login - Ticksy ToDo{% endblock %}
 
 {% block content %}
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
-
-            <p>{% blocktrans %}Welcome back to the code|star blog. To leave a comment or like a post, please log in. If
-                you
-                have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
+<div class="auth-container">
+    <h2 class="lobster-regular">Sign In</h2>
+    
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            {{ form.errors }}
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <form class="login" method="POST" action="{% url 'account_login' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
-            </form>
-        </div>
-    </div>
+    {% endif %}
+    
+    <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn-primary">
+            <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+    </form>
+    
+    <p class="auth-links">
+        Don't have an account? <a href="{% url 'account_signup' %}">Register here</a>
+    </p>
 </div>
+
+<style>
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.auth-container h2 {
+    text-align: center;
+    color: #132750;
+    margin-bottom: 30px;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-links a {
+    color: #f46b45;
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+</style>
 {% endblock %}
