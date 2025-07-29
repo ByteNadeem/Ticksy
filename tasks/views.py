@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib import messages
 from .models import Task
 from .forms import TaskForm
 
@@ -12,7 +13,7 @@ def home(request):
     """
     return render(request, 'tasks.html')
 
-@login_required  # Add this line
+@login_required
 def tasks(request):
     """
     A view to display the tasks to do and the completed tasks
@@ -28,6 +29,7 @@ def tasks(request):
             task = form.save(commit=False)
             task.user = request.user  # Assign task to current user
             task.save()
+            messages.success(request, 'Task created successfully!')
             return redirect('tasks')
     else:
         form = TaskForm()
@@ -36,11 +38,13 @@ def tasks(request):
         'to_do_tasks': to_do_tasks,
         'done_tasks': done_tasks,
         'form': form,
+        'is_admin': request.user.groups.filter(name='Admin').exists(),  # Check if user is admin
     }
 
     return render(request, 'tasks_page.html', context)
 
-@login_required  # Add this line
+@login_required
+@permission_required('tasks.view_task', raise_exception=True)
 def task_detail(request, task_id):
     """
     View to display a single task's details
@@ -49,7 +53,8 @@ def task_detail(request, task_id):
     context = {'task': task}
     return render(request, 'task_detail.html', context)
 
-@login_required  # Add this line
+@login_required
+@permission_required('tasks.change_task', raise_exception=True)
 def task_edit(request, task_id):
     """
     View to edit an existing task
@@ -60,6 +65,7 @@ def task_edit(request, task_id):
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Task updated successfully!')
             return redirect('tasks')
     else:
         form = TaskForm(instance=task)
@@ -67,7 +73,8 @@ def task_edit(request, task_id):
     context = {'form': form, 'task': task}
     return render(request, 'task_edit.html', context)
 
-@login_required  # Add this line
+@login_required
+@permission_required('tasks.delete_task', raise_exception=True)
 def task_delete(request, task_id):
     """
     View to delete a task
@@ -76,12 +83,14 @@ def task_delete(request, task_id):
     
     if request.method == 'POST':
         task.delete()
+        messages.success(request, 'Task deleted successfully!')
         return redirect('tasks')
     
     context = {'task': task}
     return render(request, 'task_confirm_delete.html', context)
 
-@login_required  # Add this line
+@login_required
+@permission_required('tasks.change_task', raise_exception=True)
 def task_toggle_complete(request, task_id):
     """
     View to toggle task completion status
@@ -89,4 +98,6 @@ def task_toggle_complete(request, task_id):
     task = get_object_or_404(Task, id=task_id, user=request.user)  # Only user's tasks
     task.completed = not task.completed
     task.save()
+    status = "completed" if task.completed else "pending"
+    messages.success(request, f'Task marked as {status}!')
     return redirect('tasks')
