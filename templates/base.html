@@ -24,18 +24,27 @@
             </label>
             <ul class="menu">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="/admin/">Admin</a></li>
-                <li><a href="{% url 'tasks' %}">Tasks</a></li>
                 {% if user.is_authenticated %}
+                    <li><a href="{% url 'tasks' %}">My Tasks</a></li>
+                    <li><a href="/admin/">Admin</a></li>
+                    <li class="nav-item username-display">
+                        <span><i class="fas fa-user"></i> {{ user.username }}</span>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link logout-btn" href="{% url 'account_logout' %}">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link" href="{% url 'account_signup' %}">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
                     </li>
                 {% endif %}
             </ul>
@@ -53,5 +62,35 @@
 
     <footer>
     </footer>
+
+    <style>
+    /* Simple username display styling */
+    .username-display span {
+        color: #132750;
+        font-weight: 500;
+        padding: 8px 12px;
+        background: rgba(244, 107, 69, 0.1);
+        border-radius: 20px;
+        font-size: 14px;
+    }
+
+    .username-display i {
+        color: #f46b45;
+        margin-right: 6px;
+    }
+
+    .logout-btn {
+        background: #dc3545 !important;
+        color: white !important;
+        padding: 8px 12px !important;
+        border-radius: 6px !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+    }
+
+    .logout-btn:hover {
+        background: #c82333 !important;
+    }
+    </style>
 </body>
 </html>
