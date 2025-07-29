@@ -10,10 +10,51 @@
         <span style="display: block; width: 60px; height: 3px; background: linear-gradient(to right, #f46b45, #eea849); margin: 15px auto 0; border-radius: 2px;"></span>
     </h2>
     
+    <!-- Enhanced Error Messages -->
     {% if form.errors %}
         <div class="alert alert-danger" style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #f5c6cb;">
-            {{ form.errors }}
+            <h5 style="margin-bottom: 10px; font-weight: 600;">
+                <i class="fas fa-exclamation-triangle"></i> Login Failed
+            </h5>
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p style="margin-bottom: 5px;">
+                        <i class="fas fa-times-circle"></i> 
+                        {% if "incorrect" in error|lower or "invalid" in error|lower %}
+                            Incorrect username or password. Please try again.
+                        {% elif "account" in error|lower %}
+                            Account not found. Please check your credentials.
+                        {% else %}
+                            {{ error }}
+                        {% endif %}
+                    </p>
+                {% endfor %}
+            {% else %}
+                <p style="margin-bottom: 5px;">
+                    <i class="fas fa-times-circle"></i> 
+                    Please check your username and password and try again.
+                </p>
+            {% endif %}
+            <p style="margin-top: 10px; font-size: 13px; color: #856404;">
+                <i class="fas fa-lightbulb"></i> 
+                <strong>Tip:</strong> Make sure your username and password are correct.
+            </p>
         </div>
+    {% endif %}
+
+    <!-- Success Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <div class="alert alert-success" style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #c3e6cb;">
+                    <i class="fas fa-check-circle"></i> {{ message }}
+                </div>
+            {% elif message.tags == 'error' %}
+                <div class="alert alert-danger" style="background: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #f5c6cb;">
+                    <i class="fas fa-exclamation-triangle"></i> {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
     {% endif %}
     
     <form method="post" action="{% url 'account_login' %}">
@@ -39,11 +80,18 @@
         </button>
     </form>
     
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'account_reset_password' %}" style="color: #6c757d; text-decoration: none; font-size: 14px;">
+            <i class="fas fa-key"></i> Forgot your password?
+        </a>
+    </div>
+    
     <p class="auth-links" style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e9ecef;">
         Don't have an account? <a href="{% url 'account_signup' %}" style="color: #f46b45; text-decoration: none; font-weight: 500;">Register here</a>
     </p>
 </div>
 
+<!-- Keep all your existing styling -->
 <style>
 /* Enhanced form field alignment and styling */
 #login-container .form-group,
@@ -81,7 +129,6 @@
     outline: none !important;
 }
 
-/* Ensure consistent form control styling */
 #login-container .form-control {
     width: 100% !important;
     padding: 12px 15px !important;
@@ -98,14 +145,12 @@
     outline: none !important;
 }
 
-/* Remove any default margins from crispy forms */
 #login-container .form-text {
     margin-top: 5px !important;
     font-size: 12px !important;
     color: #6c757d !important;
 }
 
-/* Align error messages properly */
 #login-container .invalid-feedback {
     display: block !important;
     margin-top: 5px !important;
@@ -113,7 +158,6 @@
     color: #dc3545 !important;
 }
 
-/* Checkbox styling for "Remember me" */
 #login-container .form-check {
     margin-bottom: 20px !important;
 }
