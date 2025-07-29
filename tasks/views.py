@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required  # Add this line
 from .models import Task
 from .forms import TaskForm
 
 # Create your views here.
-
 
 def home(request):
     """
@@ -12,20 +12,22 @@ def home(request):
     """
     return render(request, 'tasks.html')
 
-
+@login_required  # Add this line
 def tasks(request):
     """
     A view to display the tasks to do and the completed tasks
     with the tasks due soonest at the top
     """
-
-    to_do_tasks = Task.objects.filter(completed=False).order_by('due_date')
-    done_tasks = Task.objects.filter(completed=True).order_by('-due_date')
+    # Only show tasks for the current user
+    to_do_tasks = Task.objects.filter(completed=False, user=request.user).order_by('due_date')
+    done_tasks = Task.objects.filter(completed=True, user=request.user).order_by('-due_date')
 
     if request.method == 'POST':
         form = TaskForm(request.POST)
         if form.is_valid():
-            form.save()
+            task = form.save(commit=False)
+            task.user = request.user  # Assign task to current user
+            task.save()
             return redirect('tasks')
     else:
         form = TaskForm()
@@ -38,21 +40,21 @@ def tasks(request):
 
     return render(request, 'tasks_page.html', context)
 
-
+@login_required  # Add this line
 def task_detail(request, task_id):
     """
     View to display a single task's details
     """
-    task = get_object_or_404(Task, id=task_id)
+    task = get_object_or_404(Task, id=task_id, user=request.user)  # Only user's tasks
     context = {'task': task}
     return render(request, 'task_detail.html', context)
 
-
+@login_required  # Add this line
 def task_edit(request, task_id):
     """
     View to edit an existing task
     """
-    task = get_object_or_404(Task, id=task_id)
+    task = get_object_or_404(Task, id=task_id, user=request.user)  # Only user's tasks
     
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
@@ -65,12 +67,12 @@ def task_edit(request, task_id):
     context = {'form': form, 'task': task}
     return render(request, 'task_edit.html', context)
 
-
+@login_required  # Add this line
 def task_delete(request, task_id):
     """
     View to delete a task
     """
-    task = get_object_or_404(Task, id=task_id)
+    task = get_object_or_404(Task, id=task_id, user=request.user)  # Only user's tasks
     
     if request.method == 'POST':
         task.delete()
@@ -79,12 +81,12 @@ def task_delete(request, task_id):
     context = {'task': task}
     return render(request, 'task_confirm_delete.html', context)
 
-
+@login_required  # Add this line
 def task_toggle_complete(request, task_id):
     """
     View to toggle task completion status
     """
-    task = get_object_or_404(Task, id=task_id)
+    task = get_object_or_404(Task, id=task_id, user=request.user)  # Only user's tasks
     task.completed = not task.completed
     task.save()
     return redirect('tasks')
