@@ -157,14 +157,35 @@
             <img src="{% static 'images/tricksy-logo-sm.png' %}" alt="Ticksy logo" />
             <div class="logo-text lobster-regular">Ticksy</div>
     </a>
+    {% if user.is_authenticated %}
+        <div style="display: flex; align-items: center; margin-left: 15px; color: #333; font-weight: 600; position: absolute; left: 180px;">
+            <i class="fas fa-user" style="color: #f46b45; margin-right: 8px;"></i> {{ user.username }}
+        </div>
+    {% endif %}
     <input id="menu-toggle" type="checkbox" />
     <label class='menu-button-container' for="menu-toggle">
     <div class='menu-button'></div>
   </label>
     <ul class="menu">
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="/admin/">Admin</a></li>
-      <li><a href="{% url 'tasks' %}">Tasks</a></li>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'tasks' %}">My Tasks</a></li>
+            {% if is_admin %}
+                <li><a href="/admin/">Admin</a></li>
+            {% endif %}
+            <li>
+                <a href="{% url 'account_logout' %}" style="background: #dc3545; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
+        {% else %}
+            <li><a href="{% url 'account_signup' %}">
+                <i class="fas fa-user-plus"></i> Register
+            </a></li>
+            <li><a href="{% url 'account_login' %}">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a></li>
+        {% endif %}
     </ul>
 </nav>
     </header>
