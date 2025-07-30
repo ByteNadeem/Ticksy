@@ -1,31 +1,36 @@
-# Django/Python project language detection
-*.py linguist-language=Python
+# Force GitHub to recognize this as a Python/Django project
+* linguist-language=Python
 
-# Mark Django admin static files as vendored (third-party)
+# Explicitly mark Python files
+*.py linguist-language=Python linguist-detectable=true
+
+# Mark ALL CSS files as vendored (third-party) to exclude from stats
+*.css linguist-vendored
+staticfiles/** linguist-vendored
+static/css/** linguist-vendored
+
+# Mark Django admin files as vendored
 staticfiles/admin/** linguist-vendored
-staticfiles/admin/* linguist-vendored
 
-# Mark any CSS in staticfiles/admin as vendored
-staticfiles/admin/**/*.css linguist-vendored
+# Mark JavaScript as vendored too
+*.js linguist-vendored
 staticfiles/admin/**/*.js linguist-vendored
 
-# Keep our custom CSS files as part of the project
-static/style.css linguist-vendored=false
-"New folder/style.css" linguist-vendored=false
-
-# Mark Django template HTML files as vendored to prioritize Python
+# Mark HTML templates as vendored to prioritize Python
+*.html linguist-vendored
 templates/** linguist-vendored
 **/templates/** linguist-vendored
-tasks/templates/** linguist-vendored
 
-# Django settings and configuration - explicitly mark as Python
-manage.py linguist-language=Python
-settings.py linguist-language=Python
-urls.py linguist-language=Python
-views.py linguist-language=Python
-models.py linguist-language=Python
-forms.py linguist-language=Python
-admin.py linguist-language=Python
-
-# Explicitly mark Python files with higher priority
+# Keep only Python files for language detection
 *.py linguist-detectable=true
+manage.py linguist-language=Python
+**/models.py linguist-language=Python
+**/views.py linguist-language=Python
+**/urls.py linguist-language=Python
+**/settings.py linguist-language=Python
+**/admin.py linguist-language=Python
+**/forms.py linguist-language=Python
+**/apps.py linguist-language=Python
+
+# Override - force the entire repo to be considered Python
+* linguist-language=Python
