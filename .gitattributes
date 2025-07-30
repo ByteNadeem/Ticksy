@@ -1,0 +1,28 @@
+# Django/Python project language detection
+*.py linguist-language=Python
+*.html linguist-language=HTML
+
+# Mark Django admin static files as vendored (third-party)
+staticfiles/admin/** linguist-vendored
+staticfiles/admin/* linguist-vendored
+
+# Mark any CSS in staticfiles/admin as vendored
+staticfiles/admin/**/*.css linguist-vendored
+staticfiles/admin/**/*.js linguist-vendored
+
+# Keep our custom CSS files as part of the project
+static/style.css linguist-vendored=false
+"New folder/style.css" linguist-vendored=false
+
+# Django template files
+templates/** linguist-language=HTML
+**/templates/** linguist-language=HTML
+
+# Django settings and configuration
+manage.py linguist-language=Python
+settings.py linguist-language=Python
+urls.py linguist-language=Python
+views.py linguist-language=Python
+models.py linguist-language=Python
+forms.py linguist-language=Python
+admin.py linguist-language=Python
