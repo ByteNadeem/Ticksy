@@ -1,6 +1,5 @@
 # Django/Python project language detection
 *.py linguist-language=Python
-*.html linguist-language=HTML
 
 # Mark Django admin static files as vendored (third-party)
 staticfiles/admin/** linguist-vendored
@@ -14,11 +13,12 @@ staticfiles/admin/**/*.js linguist-vendored
 static/style.css linguist-vendored=false
 "New folder/style.css" linguist-vendored=false
 
-# Django template files
-templates/** linguist-language=HTML
-**/templates/** linguist-language=HTML
+# Mark Django template HTML files as vendored to prioritize Python
+templates/** linguist-vendored
+**/templates/** linguist-vendored
+tasks/templates/** linguist-vendored
 
-# Django settings and configuration
+# Django settings and configuration - explicitly mark as Python
 manage.py linguist-language=Python
 settings.py linguist-language=Python
 urls.py linguist-language=Python
@@ -26,3 +26,6 @@ views.py linguist-language=Python
 models.py linguist-language=Python
 forms.py linguist-language=Python
 admin.py linguist-language=Python
+
+# Explicitly mark Python files with higher priority
+*.py linguist-detectable=true
