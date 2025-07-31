@@ -44,11 +44,12 @@
 </nav>
     </header>
 
-    <main>
-        <section class="bg-colour1">
+        <main>
+    
+        <section class="section-one">
             <div class="standard-section">
                 <div class="hero-section">
-                    <img src="{% static 'images/generate a hero imag.png' %}" alt="This is an image of a man completing a task" class="hero-img" />
+                    <img src="{% static 'images/hero image 2.webp' %}" alt="This is an image of a women completing a task" class="hero-img" />
                     <div class="hero-text">
                         <h1 class="lobster-regular">Welcome To Ticksy</h1>
                         <h2>Organizing your work life balance</h2>
@@ -57,6 +58,33 @@
                 </div>
             </div>
         </section>
+
+        
+        <section class="section-two">
+            <div class="standard-section">
+                <h2 class="lobster-regular">Why Choose Ticksy?</h2>
+                <p>This is the second section with light blue background.</p>
+            </div>
+        </section>
+
+    
+        <section class="section-three">
+            <div class="standard-section">
+                <h2 class="lobster-regular">Get Started Today</h2>
+                <p>This is the third section with light yellow background.</p>
+            </div>
+        </section>
+    
+<section class="section-access">
+    <div class="standard-section access-flex">
+        <div class="access-text">
+            <h2>Access Your Tasks Anywhere</h2>
+            <p>Ticksy is available on all your devices. Stay productive at home, work, or on the go.</p>
+            <a href="{% url 'account_signup' %}" class="btn-hero-primary">Join Now</a>
+        </div>
+        <img src="{% static 'images/access.webp' %}" alt="Access your tasks anywhere" class="access-img" />
+    </div>
+</section>
     </main>
     <footer>
 
