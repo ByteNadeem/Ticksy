@@ -536,7 +536,7 @@ header {
     margin-top: 0;
     color: #132750;
 }
-/* Homepage 3-Section Layout */
+/* Homepage 4 -Section Layout */
 .section-one {
     background-color: #C9E4DE; /* Light grey */
     padding: 60px 0;
@@ -699,7 +699,7 @@ header {
     margin-right: 10px;
 }
 
-/* Option B: Elegant & Sophisticated - Section 2 & 3 */
+/*  Elegant & Sophisticated - Section 2 & 3 */
 .section-two h2, .section-three h2 {
     font-family: 'Georgia', serif;
     font-size: 3rem;
@@ -728,6 +728,64 @@ header {
     line-height: 1.8;
     font-style: italic;
     text-align: center;
+}
+/* Benefits grid layout */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Individual benefit item */
+.benefit-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon styling */
+.benefit-item i {
+  font-size: 36px;
+  color: #007acc;
+  margin-bottom: 15px;
+}
+
+/* Benefit title */
+.benefit-item h3 {
+  font-size: 1.5rem;
+  font-family: 'Lobster', cursive;
+  margin-bottom: 10px;
+  color: #1a252f;
+}
+
+/* Benefit description */
+.benefit-item p {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+/* Icon: Tick (check-circle) */
+.benefit-item i.fa-check-circle {
+  color: #28a745; /* Green */
+}
+
+/* Icon: Clock */
+.benefit-item i.fa-clock {
+  color: #ffc107; /* Amber/Gold */
+}
+
+/* Icon: Star */
+.benefit-item i.fa-star {
+  color: #f46b45; /* Warm orange */
 }
 /* Elegant & Sophisticated paragraph styling for all sections */
 .hero-text p,
@@ -912,4 +970,29 @@ header {
     .section-two h2, .section-three h2 {
         font-size: 2rem;
     }
+}
+@media (max-width: 768px) {
+  .access-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .access-text {
+    align-items: center;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .access-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .access-text p {
+    font-size: 1rem;
+  }
+
+  .access-img {
+    width: 80vw;
+    margin-top: 20px;
+  }
 }

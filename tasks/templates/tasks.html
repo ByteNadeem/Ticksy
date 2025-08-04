@@ -60,19 +60,38 @@
             </div>
         </section>
 
-        
         <section class="section-two">
-            <div class="standard-section">
-                <h2 class="lobster-regular">Why Choose Ticksy?</h2>
-                <p>This is the second section with light blue background.</p>
-            </div>
-        </section>
+  <div class="standard-section">
+    <h2 class="lobster-regular">Why Choose Ticksy?</h2>
+    
+
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <i class="fa-solid fa-check-circle"></i>
+        <h3 class="lobster-regular">Stay Organized</h3>
+        <p>Keep track of tasks, set priorities, and stay focused.</p>
+      </div>
+      <div class="benefit-item">
+        <i class="fa-solid fa-clock"></i>
+        <h3 class="lobster-regular">Save Time</h3>
+        <p>Streamline your workflow and boost productivity.</p>
+      </div>
+      <div class="benefit-item">
+        <i class="fa-solid fa-star"></i>
+        <h3 class="lobster-regular">Achieve Goals</h3>
+        <p>Track progress and reach your objectives faster.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     
         <section class="section-three">
             <div class="standard-section">
                 <h2 class="lobster-regular">Get Started Today</h2>
-                <p>This is the third section with light yellow background.</p>
+                <p> With Ticksy, you can streamline your task management process, increase productivity, and achieve your goals faster. Join thousands of satisfied users today!</p>
+                <a href="{% url 'account_signup' %}" class="btn-hero-primary">Join Now</a>
             </div>
         </section>
     
@@ -81,7 +100,8 @@
         <div class="access-text">
             <h2>Access Your Tasks Anywhere</h2>
             <p>Ticksy is available on all your devices. Stay productive at home, work, or on the go.</p>
-            <a href="{% url 'account_signup' %}" class="btn-hero-primary">Join Now</a>
+            <a href="{% url 'tasks' %}" class="btn-hero-primary">View Tasks</a>
+           
         </div>
         <img src="{% static 'images/Access.webp' %}" alt="Access your tasks anywhere" class="access-img" />
     </div>
