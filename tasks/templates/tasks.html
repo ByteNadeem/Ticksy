@@ -11,19 +11,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticksy ToDo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
     <header>
          <nav class="top-nav">
     <a href="{% url 'home' %}" class="header-logo">
-            <img src="{% static 'images/tricksy-logo-sm.png' %}" alt="Ticksy logo" />
+            <img src="{% static 'images/tricksy-logo-sm.png' %}" alt="Ticksy logo">
             <div class="logo-text lobster-regular">Ticksy</div>
     </a>
-    <input id="menu-toggle" type="checkbox" />
-    <label class='menu-button-container' for="menu-toggle">
-    <div class='menu-button'></div>
-  </label>
+    <input id="menu-toggle" type="checkbox">
+<label class="menu-button-container" for="menu-toggle">
+  <span class="menu-button"></span>
+</label>
     <ul class="menu">
       <li><a href="{% url 'home' %}">Home</a></li>
       <li><a href="/admin/">Admin</a></li>
@@ -50,7 +50,7 @@
         <section class="section-one">
             <div class="standard-section">
                 <div class="hero-section">
-                    <img src="{% static 'images/hero image 2.webp' %}" alt="This is an image of a women completing a task" class="hero-img" />
+                    <img src="{% static 'images/heroimage.webp' %}" alt="This is an image of a women completing a task" class="hero-img">
                     <div class="hero-text">
                         <h1 class="lobster-regular">Welcome To Ticksy</h1>
                         <h2>Organizing your work life balance</h2>
@@ -103,7 +103,7 @@
             <a href="{% url 'tasks' %}" class="btn-hero-primary">View Tasks</a>
            
         </div>
-        <img src="{% static 'images/Access.webp' %}" alt="Access your tasks anywhere" class="access-img" />
+        <img src="{% static 'images/Access.webp' %}" alt="Access your tasks anywhere" class="access-img">
     </div>
 </section>
     </main>
