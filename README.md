@@ -6,25 +6,9 @@ A task management application built with Django.
 
 The Ticksy system has three main entities: User, Category, and Task.
 
-```
-┌─────────────────────┐         ┌─────────────────────┐         ┌─────────────────────┐
-│       User          │         │      Category       │         │        Task         │
-│                     │         │                     │         │                     │
-├─────────────────────┤         ├─────────────────────┤         ├─────────────────────┤
-│ id (PK)             │◄────────┤ id (PK)             │◄────────┤ id (PK)             │
-│ username (UNIQUE)   │    │    │ name (UNIQUE)       │    │    │ title               │
-│ email               │    │    │                     │    │    │ due_date (NULL)     │
-│ password            │    │    └─────────────────────┘    │    │ completed (BOOL)    │
-│ first_name          │    │                               │    │ category_id (FK)    │
-│ last_name           │    │                               │    │ user_id (FK)        │
-│ date_joined         │    │                               │    │                     │
-│ is_active           │    │                               │    └─────────────────────┘
-│ ...                 │    │                               │
-└─────────────────────┘    │                               │
-                           │                               │
-           One-to-Many     │               One-to-Many     │
-           (1:N)           │               (1:N)           │
-                           └───────────────────────────────┘
+
+![ERD](assets/images/ERDsnip.png)
+
 
 ### Basic Description
 
