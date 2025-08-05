@@ -50,3 +50,21 @@ This simple structure allows users to organize their tasks by category and track
   <tr><td>Filter Tasks by Category</td><td>Use the category filter to display tasks with a specific category (Work, Personal, Urgent).</td><td>Only tasks with the selected category are displayed.</td><td>PASS</td></tr>
   <tr><td>Username</td><td>Username is displayed</td><td>Once login username appears in navbar</td><td>Pass</td></tr>
 </table>
+
+
+### Automated Testing
+This project includes a suite of automated tests to help ensure everything works as expected. The tests cover the most important features of the Ticksy app:
+
+#### Form Validation:
+We check that tasks can be created with valid data and that the form correctly rejects missing or invalid information.
+
+#### Model Logic:
+The tests confirm that tasks and categories are saved and displayed properly, and that default values (like task completion status) work as intended.
+
+#### View and Permission Checks:
+The app’s main views are tested to make sure only logged-in users can access or modify their own tasks. We also verify that users can’t change or delete tasks that belong to someone else.
+
+#### CRUD Operations: 
+Creating, updating, and deleting tasks are all tested to ensure these core features work smoothly.
+
+To run the tests, simply use: python manage.py test This will automatically check all forms, models, and views for correct behavior.
