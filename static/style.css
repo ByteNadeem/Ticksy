@@ -585,14 +585,14 @@ header {
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
-.hero-img {
+/* .hero-img {
   transform: translateX(-150px);
 }
 
 
 .hero-img:hover {
     transform: translateY(-5px);
-}
+} */
 
 .hero-text {
     flex: 1;
@@ -609,7 +609,6 @@ header {
 
 
 .hero-text h1 {
-    font-family: 'Georgia', serif;
     font-size: 4rem;
     font-weight: 400;
     color: #1a252f;
@@ -630,7 +629,6 @@ header {
 
 .hero-text h2 {
     font-size: 1.7rem;
-    color: #4a5568;
     margin-bottom: 15px;
     line-height: 1.5;
     font-style: italic;
@@ -697,8 +695,7 @@ header {
 }
 
 /*  Elegant & Sophisticated - Section 2 & 3 */
-.section-two h2, .section-three h2 {
-    font-family: 'Georgia', serif;
+.section-two h2, .section-three h2, .section-access h2 {
     font-size: 3rem;
     font-weight: 400;
     color: #1a252f;
@@ -833,13 +830,13 @@ header {
     margin-right: auto;
 }
 
-.access-text h2 {
+/* .access-text h2 {
     font-family: 'Georgia', serif;
     font-size: 2rem;
     color: #1a252f;
     margin-bottom: 18px;
     font-weight: 400;
-}
+} */
 
 .access-text p {
     font-size: 1.1rem;
@@ -883,6 +880,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+  width:100%;
 }
 
 .social-icons {
@@ -919,6 +917,7 @@ header {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 20px;
+    
   }
 
   .social-icons {
@@ -993,3 +992,5 @@ header {
     margin-top: 20px;
   }
 }
+@media (min-width: 1200px)
+{.hero-img{ margin-left: -100px;}}

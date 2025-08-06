@@ -48,7 +48,7 @@ This simple structure allows users to organize their tasks by category and track
   <tr><td>Mark Task as Completed</td><td>Click the completed button to mark a task as completed.</td><td>Task status is updated to "Completed" and visually distinguished from other tasks.</td><td>PASS</td></tr>
   <tr><td>View Tasks by Status</td><td>status of the task is displayed with a specific status (Pending,Completed).</td><td>Only tasks with the selected status are displayed.</td><td>PASS</td></tr>
   <tr><td>Filter Tasks by Category</td><td>Use the category filter to display tasks with a specific category (Work, Personal, Urgent).</td><td>Only tasks with the selected category are displayed.</td><td>PASS</td></tr>
-  <tr><td>Username</td><td>Username is displayed</td><td>Once login username appears in navbar</td><td>Pass</td></tr>
+  <tr><td>Username</td><td>Username is displayed</td><td>Once login username appears in navbar</td><td>PASS</td></tr>
 </table>
 
 
