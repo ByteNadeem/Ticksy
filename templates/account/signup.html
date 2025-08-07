@@ -4,7 +4,7 @@
 {% block title %}Register - Ticksy ToDo{% endblock %}
 
 {% block content %}
-<div class="auth-container" id="signup-container" style="max-width: 450px; margin: 60px auto; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+<div class="author-container" id="signup-container" style="max-width: 450px; margin: 60px auto; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
     <h2 class="lobster-regular" style="text-align: center; color: #132750; margin-bottom: 40px; font-size: 28px; letter-spacing: 1px; font-weight: 400; position: relative;">
         Create Account
         <span style="display: block; width: 60px; height: 3px; background: linear-gradient(to right, #f46b45, #eea849); margin: 15px auto 0; border-radius: 2px;"></span>
@@ -46,73 +46,5 @@
     </p>
 </div>
 
-<style>
-/* Enhanced form field alignment and styling */
-#signup-container .form-group,
-#signup-container .mb-3 {
-    margin-bottom: 25px !important;
-}
 
-#signup-container label {
-    display: block !important;
-    margin-bottom: 8px !important;
-    font-weight: 500 !important;
-    color: #495057 !important;
-    font-size: 14px !important;
-}
-
-#signup-container input[type="text"],
-#signup-container input[type="email"], 
-#signup-container input[type="password"] {
-    width: 100% !important;
-    padding: 12px 15px !important;
-    border: 2px solid #e9ecef !important;
-    border-radius: 8px !important;
-    font-size: 14px !important;
-    transition: border-color 0.3s ease !important;
-    box-sizing: border-box !important;
-    display: block !important;
-    background: #fff !important;
-}
-
-#signup-container input[type="text"]:focus,
-#signup-container input[type="email"]:focus,
-#signup-container input[type="password"]:focus {
-    border-color: #f46b45 !important;
-    box-shadow: 0 0 0 3px rgba(244, 107, 69, 0.1) !important;
-    outline: none !important;
-}
-
-/* Ensure consistent form control styling */
-#signup-container .form-control {
-    width: 100% !important;
-    padding: 12px 15px !important;
-    border: 2px solid #e9ecef !important;
-    border-radius: 8px !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-    box-sizing: border-box !important;
-}
-
-#signup-container .form-control:focus {
-    border-color: #f46b45 !important;
-    box-shadow: 0 0 0 3px rgba(244, 107, 69, 0.1) !important;
-    outline: none !important;
-}
-
-/* Remove any default margins from crispy forms */
-#signup-container .form-text {
-    margin-top: 5px !important;
-    font-size: 12px !important;
-    color: #6c757d !important;
-}
-
-/* Align error messages properly */
-#signup-container .invalid-feedback {
-    display: block !important;
-    margin-top: 5px !important;
-    font-size: 12px !important;
-    color: #dc3545 !important;
-}
-</style>
 {% endblock %}

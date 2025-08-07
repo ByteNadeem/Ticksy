@@ -3,6 +3,8 @@
 {% block title %}Logout - Ticksy ToDo{% endblock %}
 
 {% block content %}
+
+
 <div class="auth-container">
     <h2 class="lobster-regular">Sign Out</h2>
     
@@ -19,59 +21,5 @@
     </form>
 </div>
 
-<style>
-    body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-}
-main {
-  flex: 1;
-}
-.auth-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-align: center;
-}
 
-.auth-container h2 {
-    color: #132750;
-    margin-bottom: 20px;
-}
-
-.auth-container p {
-    margin-bottom: 30px;
-    color: #666;
-}
-
-.btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 15px;
-    background: #6c757d;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-left: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-secondary:hover {
-    background: #5a6268;
-    color: white;
-    text-decoration: none;
-}
-
-.btn-secondary i {
-    margin-right: 6px;
-}
-</style>
 {% endblock %}

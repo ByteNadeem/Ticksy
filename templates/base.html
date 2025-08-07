@@ -5,22 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Ticksy ToDo{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}?v=14.0" />
+    <link rel="stylesheet" href="{% static 'style.css' %}?v=14.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+    /* Simple username display styling */
+    .username-display span {
+        color: #132750;
+        font-weight: 500;
+        padding: 8px 12px;
+        background: rgba(244, 107, 69, 0.1);
+        border-radius: 20px;
+        font-size: 14px;
+    }
+
+    .username-display i {
+        color: #f46b45;
+        margin-right: 6px;
+    }
+
+    .logout-btn {
+        background: #dc3545 !important;
+        color: white !important;
+        padding: 8px 12px !important;
+        border-radius: 6px !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+    }
+
+    .logout-btn:hover {
+        background: #c82333 !important;
+    }
+
+    /* Message alerts styling */
+    .alert-success {
+        background: #d1edff !important;
+        color: #0c5460 !important;
+        border: 1px solid #b8daff !important;
+    }
+    
+    .alert-error, .alert-danger {
+        background: #f8d7da !important;
+        color: #721c24 !important;
+        border: 1px solid #f5c6cb !important;
+    }
+    
+    .alert-warning {
+        background: #fff3cd !important;
+        color: #856404 !important;
+        border: 1px solid #ffeaa7 !important;
+    }
+    
+    .alert-info {
+        background: #d1ecf1 !important;
+        color: #0c5460 !important;
+        border: 1px solid #bee5eb !important;
+    }
+    
+    .btn-close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        color: inherit;
+        opacity: 0.5;
+        float: right;
+        cursor: pointer;
+    }
+    
+    .btn-close:hover {
+        opacity: 1;
+    }
+    </style>
 </head>
 <body>
     <header>
         <nav class="top-nav">
             <a href="{% url 'home' %}" class="header-logo">
-                <img src="{% static 'images/tricksy-logo-sm.png' %}" alt="Ticksy logo" />
+                <img src="{% static 'images/tricksy-logo-sm.png' %}" alt="Ticksy logo">
                 <div class="logo-text lobster-regular">Ticksy</div>
             </a>
-            <input id="menu-toggle" type="checkbox" />
+            <input id="menu-toggle" type="checkbox">
             <label class='menu-button-container' for="menu-toggle">
-                <div class='menu-button'></div>
+                <span class='menu-button'></span>
             </label>
             <ul class="menu">
                 <li><a href="{% url 'home' %}">Home</a></li>
@@ -101,75 +170,7 @@
   </div>
 </footer>
 
-    <style>
-    /* Simple username display styling */
-    .username-display span {
-        color: #132750;
-        font-weight: 500;
-        padding: 8px 12px;
-        background: rgba(244, 107, 69, 0.1);
-        border-radius: 20px;
-        font-size: 14px;
-    }
-
-    .username-display i {
-        color: #f46b45;
-        margin-right: 6px;
-    }
-
-    .logout-btn {
-        background: #dc3545 !important;
-        color: white !important;
-        padding: 8px 12px !important;
-        border-radius: 6px !important;
-        font-weight: 500 !important;
-        text-decoration: none !important;
-    }
-
-    .logout-btn:hover {
-        background: #c82333 !important;
-    }
-
-    /* Message alerts styling */
-    .alert-success {
-        background: #d1edff !important;
-        color: #0c5460 !important;
-        border: 1px solid #b8daff !important;
-    }
     
-    .alert-error, .alert-danger {
-        background: #f8d7da !important;
-        color: #721c24 !important;
-        border: 1px solid #f5c6cb !important;
-    }
-    
-    .alert-warning {
-        background: #fff3cd !important;
-        color: #856404 !important;
-        border: 1px solid #ffeaa7 !important;
-    }
-    
-    .alert-info {
-        background: #d1ecf1 !important;
-        color: #0c5460 !important;
-        border: 1px solid #bee5eb !important;
-    }
-    
-    .btn-close {
-        background: none;
-        border: none;
-        font-size: 20px;
-        font-weight: bold;
-        color: inherit;
-        opacity: 0.5;
-        float: right;
-        cursor: pointer;
-    }
-    
-    .btn-close:hover {
-        opacity: 1;
-    }
-    </style>
 
     <!-- Bootstrap 5 JS for alert functionality -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
