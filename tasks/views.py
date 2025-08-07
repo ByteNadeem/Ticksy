@@ -5,13 +5,14 @@ from django.contrib import messages
 from .models import Task
 from .forms import TaskForm
 
-# Create your views here.
 
+# Create your views here.
 def home(request):
     """
     A view to display the home page with just the hero section
     """
     return render(request, 'tasks.html')
+
 
 @login_required
 def tasks(request):
@@ -20,8 +21,15 @@ def tasks(request):
     with the tasks due soonest at the top
     """
     # Only show tasks for the current user
-    to_do_tasks = Task.objects.filter(completed=False, user=request.user).order_by('due_date')
-    done_tasks = Task.objects.filter(completed=True, user=request.user).order_by('-due_date')
+    to_do_tasks = Task.objects.filter(
+        completed=False,
+        user=request.user
+    ).order_by('due_date')
+
+    done_tasks = Task.objects.filter(
+        completed=True,
+        user=request.user
+    ).order_by('-due_date')
 
     if request.method == 'POST':
         form = TaskForm(request.POST)
@@ -38,10 +46,13 @@ def tasks(request):
         'to_do_tasks': to_do_tasks,
         'done_tasks': done_tasks,
         'form': form,
-        'is_admin': request.user.groups.filter(name='Admin').exists(),  # Check if user is admin
+        'is_admin': request.user.groups.filter(
+            name='Admin'
+        ).exists(),  # Check if user is admin
     }
 
     return render(request, 'tasks_page.html', context)
+
 
 @login_required
 def task_detail(request, task_id):
@@ -59,7 +70,7 @@ def task_edit(request, task_id):
     View to edit an existing task
     """
     task = get_object_or_404(Task, id=task_id, user=request.user)
-    
+
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
@@ -68,7 +79,7 @@ def task_edit(request, task_id):
             return redirect('tasks')
     else:
         form = TaskForm(instance=task)
-    
+
     context = {'form': form, 'task': task}
     return render(request, 'task_edit.html', context)
 
@@ -79,12 +90,12 @@ def task_delete(request, task_id):
     View to delete a task
     """
     task = get_object_or_404(Task, id=task_id, user=request.user)
-    
+
     if request.method == 'POST':
         task.delete()
         messages.success(request, 'Task deleted successfully!')
         return redirect('tasks')
-    
+
     context = {'task': task}
     return render(request, 'task_confirm_delete.html', context)
 

@@ -8,7 +8,6 @@ from allauth.account.views import LoginView, LogoutView
 
 class CustomLoginView(LoginView):
     """Custom login view that adds success message"""
-    
     def form_valid(self, form):
         response = super().form_valid(form)
         username = self.request.user.username
@@ -21,7 +20,6 @@ class CustomLoginView(LoginView):
 
 class CustomLogoutView(LogoutView):
     """Custom logout view that adds goodbye message"""
-    
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             username = request.user.username
