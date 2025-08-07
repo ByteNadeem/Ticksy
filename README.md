@@ -2,6 +2,16 @@
 
 A task management application built with Django.
 
+
+### Description
+
+
+![AmIresponsive](assets/images/responsive.png)
+
+#### Wrireframe
+
+![Wireframe](assets/images/Wirefame.png)
+
 ## 📊 Entity Relationship Diagram (ERD)
 
 The Ticksy system has three main entities: User, Category, and Task.
