@@ -1,18 +1,85 @@
-# Ticksy
+Ticksy poject by Nadeem Sardar
 
-A task management application built with Django.
+### Table of Contents
+
+- [Ticksy](#ticksy)
+
+  - [Table of Contents](#table-of-contents)
+
+  - [Introduction](#introduction)
+  - [Agile Planning](#agile-planning)
+    - [UI Desgin](#ui-design)
+    - [Wireframe](#wireframe)
+    - [User Stories](#user-stories)
+    - [Project Board](#project-board)
+    - [Colour Scheme](#colour-scheme)
+    - [Entity Relationship Diagram (ERD)](#-entity-relationship-diagram-erd)
 
 
-### Description
+### Introduction
 
+Ticksy is task management application coded in html/css and python using the django framework.
+The application provides a scalable & modern interface which allows users to manage their tasks easily and contains advanced features which allow users to organise & filter tasks.
+You can use username:Test password:Password25? it has some tasks already added. 
 
 ![AmIresponsive](assets/images/responsive.png)
 
-#### Wrireframe
+### Repository
+
+The Github repo can be found here.
+
+[Github Repo](https://github.com/ByteNadeem/Ticksy)
+
+The project Board can be found here.
+
+[Github Project Board](https://github.com/users/ByteNadeem/projects/8)
+
+The deployed Heroku project link can be found here.
+
+[Deployed Link](https://ticksy-capstone-a483806e04fd.herokuapp.com/)
+
+#### Agile Planning 
+This project utilised an agile methodology for the project. making use of user stories, wireframes and a kanban board.
+
+##### UI Design
+
+Ticksy features a clean, modern, and responsive user interface designed for intuitive task management. The layout uses clear navigation, visually distinct buttons, and organized sections to help users easily add, view, edit, and filter their tasks. The design adapts to both desktop and mobile devices, ensuring a seamless experience across platforms. Visual feedback, color-coded statuses, and accessible forms make the app user-friendly and efficient for managing daily tasks.
+
+##### Wrireframe
+
+The wireframes illustrate the planned layout and user flow of the Ticksy app. They provide a visual guide for the structure and navigation.
+The design did not change significantly during development but addition features, content and details were added to enhance the application beyond the initial scope.
 
 ![Wireframe](assets/images/Wirefame.png)
 
+##### User Stories
+
+User stories define the main goals and actions for Ticksy users.  
+They describe what users need to accomplish, such as registering, managing tasks, and filtering by category or status. These stories guided the development process to ensure the app meets real
+
+###### Example
+
+![User Stories](assets/images/userstories.png)
+
+This user story outlines CRUD function. It specifies the user's goal to utilise CRUD function and the reason behind it (to keep track of to-do items). The story details the necessary criteria for fulfilling this requirement and lists the specific tasks that must be completed to implement the feature.
+You can find more user stories on the project board, by using Github project board link above. 
+
+##### Project Board
+
+The project board tracks the progress of Ticksy’s development using a Kanban-style workflow.  
+It organizes tasks into columns such as To Do, In Progress, and Done, helping to visualize priorities and monitor the completion of user stories and features throughout the project lifecycle.
+
+![Project Board](assets/images/projectboard.png)
+
+##### Colour Scheme
+
+The primary colours are shades of Butterscotch and Azure, chosen to create a vibrant and motivating interface. Secondary colours such as white and grey are used to provide contrast and enhance readability throughout the app.
+
+![Colour Palette](assets/images/colorpalettes.png)
+
+
 ## 📊 Entity Relationship Diagram (ERD)
+
 
 The Ticksy system has three main entities: User, Category, and Task.
 
