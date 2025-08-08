@@ -14,6 +14,11 @@ Ticksy poject by Nadeem Sardar
     - [Project Board](#project-board)
     - [Colour Scheme](#colour-scheme)
     - [Entity Relationship Diagram (ERD)](#-entity-relationship-diagram-erd)
+  - [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Features Left to Implement](#features-left-to-implement)
+  - [Technologies Used](#technologies-used)
+    - [How AI Was Used](#how-ai-was-used)
 
 
 ### Introduction
@@ -78,7 +83,7 @@ The primary colours are shades of Butterscotch and Azure, chosen to create a vib
 ![Colour Palette](assets/images/colorpalettes.png)
 
 
-## 📊 Entity Relationship Diagram (ERD)
+##### 📊 Entity Relationship Diagram (ERD)
 
 
 The Ticksy system has three main entities: User, Category, and Task.
@@ -87,7 +92,7 @@ The Ticksy system has three main entities: User, Category, and Task.
 ![ERD](assets/images/ERDsnip.png)
 
 
-### Basic Description
+##### Basic Description
 
 The database has three tables:
 
@@ -95,7 +100,7 @@ The database has three tables:
 - **Category**: Stores task categories (like "Work", "Personal", etc.)
 - **Task**: Stores individual tasks with title, due date, and completion status
 
-### Relationships
+##### Relationships
 
 - Each user can have many tasks (One-to-Many)
 - Each category can have many tasks (One-to-Many)
@@ -103,8 +108,87 @@ The database has three tables:
 
 This simple structure allows users to organize their tasks by category and track completion status.
 
+#### Features
 
-### Testing
+##### Existing Features
+  1. ###### Home Page 
+  The home page welcomes users with an overview of Ticksy, highlights key features, and provides easy navigation to register or log in, benefits of the app. 
+
+  ![Homepage](assets/images/homepage.png)
+
+  2. ###### Tasks
+The Tasks page allows users to add, view, edit, filter, and manage their to-do items.  
+It displays tasks by category and status, provides quick actions for updating or deleting tasks, and helps users stay organized and productive.
+
+![Tasks](assets/images/Tasks.png)
+
+![CRUD](assets/images/CRUD.png)
+
+  3. ###### Register
+  The Register page allows new users to create an account by entering a username, email, and password. 
+  It provides a simple, user-friendly form to enable quick and secure registration for access to all Ticksy features.
+
+  ![Register](assets/images/Register.png)
+
+  4. ###### Log In
+The Log In page allows existing users to securely access their Ticksy account by entering their username and password.It uses authentication to verify user credentials, ensuring that only registered users can view and manage their personal tasks.
+
+![Log In](assets/images/login.png)  
+
+  5. ###### Log out
+  The Log out feature securely ends the user’s session and redirects them to the login page, ensuring their account remains protected when they leave the app.
+
+  ![Log out](assets/images/logout.png)
+
+  6. ###### Admin Features
+  The Django Administration panel allows site administrators to manage users, tasks, and categories through a secure, user-friendly web interface.Admins can add, edit, or delete records, view all user data, and efficiently oversee the application's content and user activity.
+
+  ![Admin](assets/images/admin.png)
+
+#### Features left to Implement
+  1. Social Media
+  2. Edit tasks in Real-time
+  3. Labeling Tasks
+  4. Toggle Switch
+
+#### Technologies Used
+
+1. HTML5 - The structure of the site was created using HTML5.
+2. CSS3 - The styling of the site was created using CSS3.
+3. JavaScript - The site uses JavaScript for interactivity through Djnago framework.
+4. Python - The site uses Python for the backend.
+5. Django - The site uses the Django web framework.
+6. Bootstrap - The site uses the limited Bootstrap framework for styling.
+7. Font Awesome - The site uses Font Awesome for icons.
+8. Google Fonts - The site uses Google Fonts for typography.
+9. Heroku - The site is deployed on Heroku.
+10. PostgreSQL - The site uses a PostgreSQL database.
+11. Cloudinary - I have installed Cloudinary but there was no need to use in my project.
+12. Color Palettes - It was use to generate the colour scheme.
+13. Favicons - It was used to get a favicon at the top of my page.
+14. Squoosh - It was used to resize the images used in my project.
+15. Visual Studio Code - Used as Intergrated Development Environment.
+
+##### HOW AI Was Used
+Artificial Intelligence played a significant role in the development of this project. Here are some ways AI was utilised:
+###### Planning and Design
+AI tools like Copilot were used to generate ideas and suggestions for the project. These tools provided insights and recommendations for the website's layout, features, and functionality. This helped streamline the planning and design process and ensure a more user-friendly and engaging final product.
+###### Code Generation 
+AI tools like GitHub Copilot were used to generate code snippets for various parts of the website. This included HTML structure and CSS styling. The AI provided context-aware suggestions that helped streamline the coding process and reduce development time.
+###### Debugging
+AI-powered debugging tools were utilised to identify and fix issues in the code. These tools analysed the codebase, detected potential bugs, and provided recommendations for resolving them. This ensured a smoother development process and a more robust final product.
+###### Accessibility Improvements
+AI was used to analyse the website's accessibility features. Tools like Lighthouse provided insights into how accessible the website is for users with disabilities and suggested improvements to enhance user experience. By leveraging AI, the project was able to achieve a higher level of efficiency, creativity, and accessibility.
+###### Generating Images
+AI tools were used to generate and enhance images for the project, providing custom graphics and optimized visuals that improve the overall look and user experience of the app.
+###### Learning and Troubleshooting 
+AI chat assistants were used to quickly resolve coding questions and troubleshoot development challenges. 
+
+#### Testing
+The site was tested manually and using automated tests.
+
+##### Manual Testing
+Manual testing was performed on the site to ensure that all features worked as expected. This included testing the following:
 
   <table border="1">
   <tr>
@@ -129,19 +213,22 @@ This simple structure allows users to organize their tasks by category and track
 </table>
 
 
-### Automated Testing
+###### Automated Testing
 This project includes a suite of automated tests to help ensure everything works as expected. The tests cover the most important features of the Ticksy app:
 
-#### Form Validation:
+###### Form Validation:
 We check that tasks can be created with valid data and that the form correctly rejects missing or invalid information.
 
-#### Model Logic:
+###### Model Logic:
 The tests confirm that tasks and categories are saved and displayed properly, and that default values (like task completion status) work as intended.
 
-#### View and Permission Checks:
+###### View and Permission Checks:
 The app’s main views are tested to make sure only logged-in users can access or modify their own tasks. We also verify that users can’t change or delete tasks that belong to someone else.
 
-#### CRUD Operations: 
+###### CRUD Operations: 
 Creating, updating, and deleting tasks are all tested to ensure these core features work smoothly.
-
 To run the tests, simply use: python manage.py test This will automatically check all forms, models, and views for correct behavior.
+
+
+
+
