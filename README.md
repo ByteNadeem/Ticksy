@@ -43,7 +43,7 @@ The deployed Heroku project link can be found here.
 
 [Deployed Link](https://ticksy-capstone-a483806e04fd.herokuapp.com/)
 
-#### Agile Planning 
+### Agile Planning 
 This project utilised an agile methodology for the project. making use of user stories, wireframes and a kanban board.
 
 ##### UI Design
@@ -62,28 +62,28 @@ The design did not change significantly during development but addition features
 User stories define the main goals and actions for Ticksy users.  
 They describe what users need to accomplish, such as registering, managing tasks, and filtering by category or status. These stories guided the development process to ensure the app meets real
 
-###### Example
+#### Example
 
 ![User Stories](assets/images/userstories.png)
 
 This user story outlines CRUD function. It specifies the user's goal to utilise CRUD function and the reason behind it (to keep track of to-do items). The story details the necessary criteria for fulfilling this requirement and lists the specific tasks that must be completed to implement the feature.
 You can find more user stories on the project board, by using Github project board link above. 
 
-##### Project Board
+#### Project Board
 
 The project board tracks the progress of Ticksy’s development using a Kanban-style workflow.  
 It organizes tasks into columns such as To Do, In Progress, and Done, helping to visualize priorities and monitor the completion of user stories and features throughout the project lifecycle.
 
 ![Project Board](assets/images/projectboard.png)
 
-##### Colour Scheme
+#### Colour Scheme
 
 The primary colours are shades of Butterscotch and Azure, chosen to create a vibrant and motivating interface. Secondary colours such as white and grey are used to provide contrast and enhance readability throughout the app.
 
 ![Colour Palette](assets/images/colorpalettes.png)
 
 
-##### 📊 Entity Relationship Diagram (ERD)
+#### 📊 Entity Relationship Diagram (ERD)
 
 
 The Ticksy system has three main entities: User, Category, and Task.
@@ -108,9 +108,9 @@ The database has three tables:
 
 This simple structure allows users to organize their tasks by category and track completion status.
 
-#### Features
+### Features
 
-##### Existing Features
+#### Existing Features
   1. ###### Home Page 
   The home page welcomes users with an overview of Ticksy, highlights key features, and provides easy navigation to register or log in, benefits of the app. 
 
@@ -145,13 +145,18 @@ The Log In page allows existing users to securely access their Ticksy account by
 
   ![Admin](assets/images/admin.png)
 
+  7. ###### Footer
+  The footer provides quick access to social media links and displays copyright information, ensuring consistent branding and easy navigation across all pages.
+
+  [Footer](assets/images/footer.png)
+
 #### Features left to Implement
   1. Social Media
   2. Edit tasks in Real-time
   3. Labeling Tasks
   4. Toggle Switch
 
-#### Technologies Used
+### Technologies Used
 
 1. HTML5 - The structure of the site was created using HTML5.
 2. CSS3 - The styling of the site was created using CSS3.
@@ -169,7 +174,7 @@ The Log In page allows existing users to securely access their Ticksy account by
 14. Squoosh - It was used to resize the images used in my project.
 15. Visual Studio Code - Used as Intergrated Development Environment.
 
-##### HOW AI Was Used
+#### HOW AI Was Used
 Artificial Intelligence played a significant role in the development of this project. Here are some ways AI was utilised:
 ###### Planning and Design
 AI tools like Copilot were used to generate ideas and suggestions for the project. These tools provided insights and recommendations for the website's layout, features, and functionality. This helped streamline the planning and design process and ensure a more user-friendly and engaging final product.
@@ -184,10 +189,10 @@ AI tools were used to generate and enhance images for the project, providing cus
 ###### Learning and Troubleshooting 
 AI chat assistants were used to quickly resolve coding questions and troubleshoot development challenges. 
 
-#### Testing
+### Testing
 The site was tested manually and using automated tests.
 
-##### Manual Testing
+#### Manual Testing
 Manual testing was performed on the site to ensure that all features worked as expected. This included testing the following:
 
   <table border="1">
@@ -213,7 +218,7 @@ Manual testing was performed on the site to ensure that all features worked as e
 </table>
 
 
-###### Automated Testing
+#### Automated Testing
 This project includes a suite of automated tests to help ensure everything works as expected. The tests cover the most important features of the Ticksy app:
 
 ###### Form Validation:
