@@ -19,7 +19,7 @@ Ticksy poject by Nadeem Sardar
     - [Features Left to Implement](#features-left-to-implement)
   - [Technologies Used](#technologies-used)
     - [How AI Was Used](#how-ai-was-used)
-  - [Testing]
+  - [Testing](#testing)
     - [Manual Testing](#manual-testing)
     - [Automated Testing](#automated-testing)
     - [Code Validation](#code-validation)
@@ -28,7 +28,7 @@ Ticksy poject by Nadeem Sardar
     - [Preparing My Project For Heroku](#preparing-my-project-for-heroku)
     - [Deploying to Heroku](#deploying-to-heroku)
   - [References](#references)
-  
+
 ### Introduction
 
 Ticksy is task management application coded in html/css and python using the django framework.
