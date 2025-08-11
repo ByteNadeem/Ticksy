@@ -19,8 +19,16 @@ Ticksy poject by Nadeem Sardar
     - [Features Left to Implement](#features-left-to-implement)
   - [Technologies Used](#technologies-used)
     - [How AI Was Used](#how-ai-was-used)
-
-
+  - [Testing]
+    - [Manual Testing](#manual-testing)
+    - [Automated Testing](#automated-testing)
+    - [Code Validation](#code-validation)
+    - [Lighthouse Testing](#lighthouse-testing)
+  - [Deployment](#deployment)
+    - [Preparing My Project For Heroku](#preparing-my-project-for-heroku)
+    - [Deploying to Heroku](#deploying-to-heroku)
+  - [References](#references)
+  
 ### Introduction
 
 Ticksy is task management application coded in html/css and python using the django framework.
@@ -264,7 +272,7 @@ The low score for best practice is because of Found an h1 tag within an article,
 ### Deployment 
 Deploying the application to heroku involved several steps.
 
-1. #### Preparing my project for heroku
+1. #### Preparing My Project For Heroku
 
   - My project was uploaded to a github repository
   - Gunicorn was installed and configured
@@ -284,3 +292,18 @@ Deploying the application to heroku involved several steps.
   - Click "Create app".
   - Add environmental variables to heroku, such as, secret keys.
   - Deploy the application.
+
+### References 
+
+- [Django Documentation](https://docs.djangoproject.com/)
+- [W3C Markup Validation Service](https://validator.w3.org/)
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+- [Bootstrap Documentation](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Font Awesome](https://fontawesome.com/)
+- [Google Fonts](https://fonts.google.com/)
+- [Heroku Documentation](https://devcenter.heroku.com/categories/reference)
+- [GitHub Copilot](https://github.com/features/copilot)
+- [Squoosh](https://squoosh.app/)
+- [Coolors](https://coolors.co/)
+- [Code Institute](https://codeinstitute.net/)
+- [Stack Overflow](https://stackoverflow.com/)
