@@ -148,7 +148,7 @@ The Log In page allows existing users to securely access their Ticksy account by
   7. ###### Footer
   The footer provides quick access to social media links and displays copyright information, ensuring consistent branding and easy navigation across all pages.
 
-  [Footer](assets/images/footer.png)
+  ![Footer](assets/images/footer.png)
 
 #### Features left to Implement
   1. Social Media
@@ -192,7 +192,7 @@ AI chat assistants were used to quickly resolve coding questions and troubleshoo
 ### Testing
 The site was tested manually and using automated tests.
 
-#### Manual Testing
+### Manual Testing
 Manual testing was performed on the site to ensure that all features worked as expected. This included testing the following:
 
   <table border="1">
@@ -218,7 +218,7 @@ Manual testing was performed on the site to ensure that all features worked as e
 </table>
 
 
-#### Automated Testing
+### Automated Testing
 This project includes a suite of automated tests to help ensure everything works as expected. The tests cover the most important features of the Ticksy app:
 
 ###### Form Validation:
@@ -234,6 +234,53 @@ The app’s main views are tested to make sure only logged-in users can access o
 Creating, updating, and deleting tasks are all tested to ensure these core features work smoothly.
 To run the tests, simply use: python manage.py test This will automatically check all forms, models, and views for correct behavior.
 
+### Code Validation
+The code was validated using the following tools:
+  - HTML was validated using the W3C Markup Validation Service, the HTML code was reviewed and validated using the browser’s “View Page Source” feature to ensure accuracy and compliance.
+A few minor trailing slash errors were detected, which did not affect the deployed project, but they were corrected to ensure clean and tidy code. 
 
+![Validation](assets/images/validation1.png)
 
+![Validation2](assets/images/validation2.png)
 
+ - CSS was validated using the W3C CSS Validation Service.
+
+ ![CSS](assets/images/CSS.png)
+
+ - Python was validated using the CI Python Linter.
+ A few minor white spaces,line too long and no new line at the end of file were detected, which did not affect the deployed project, but they were corrected to ensure clean and tidy code.
+
+![Linter](assets/images/Linter1.png)
+
+![Linter2](assets/images/Linter2.png)
+
+### Lighthouse Testing
+The site was tested using Google LightHouse to check performance, accessibility, best practices, and SEO.
+
+![Lighthouse](assets/images/Lighthouse.png)
+
+The low score for best practice is because of Found an h1 tag within an article, aside, nav, or section which does not have a specified font-size, this can be corrected in future. Some images size could be reduced to get better performance. 
+
+### Deployment 
+Deploying the application to heroku involved several steps.
+
+1. #### Preparing my project for heroku
+
+  - My project was uploaded to a github repository
+  - Gunicorn was installed and configured
+  - Ensure all dependencies are listed in requirements.txt and the python version is listed in
+    .python-version
+  - Configure static files and settings.py, paying special attention to disabling debugging and any other settings related to security.
+  - Set up and configure environmental files eg. env.py
+  - Create a Procfile. This file tells Heroku how to run your application.
+  - Ensure that any files that contain secret keys or other sensitive information eg. env.py is added to .gitignore and is not present in your 
+    github repo
+    
+  2. #### Deploying to Heroku
+
+  - Click on New in the Heroku dashboard, and Create new app from the menu dropdown.
+  - Give your new app a unique name, and choose a region, preferably one that is geographically closest to you.
+  - Link github repository & Code Institute PostGres database.
+  - Click "Create app".
+  - Add environmental variables to heroku, such as, secret keys.
+  - Deploy the application.
